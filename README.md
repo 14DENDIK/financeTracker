@@ -14,3 +14,4 @@ Backend:
 * Django
 * Ajax
 * PostgreSQL
+# financeTracker
