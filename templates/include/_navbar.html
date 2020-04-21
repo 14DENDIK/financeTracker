@@ -1,0 +1,51 @@
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>FinanceTracker</h3>
+    <strong>FT</strong>
+  </div>
+
+  <ul class="list-unstyled components">
+    <!-- <li class="active">
+      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+        <i class="fas fa-home"></i>
+        Home
+      </a>
+      <ul class="collapse list-unstyled" id="homeSubmenu">
+        <li><a href="#">Home 1</a></li>
+        <li><a href="#">Home 2</a></li>
+        <li><a href="#">Home 3</a></li>
+        <li><a href="#">Home 4</a></li>
+      </ul>
+    </li> -->
+    <li class="{% if url_name == 'home' %}active{% endif %}">
+      <a href="{% url 'auth:home' %}"><i class="fas fa-tachometer-alt"></i>
+        Home
+      </a>
+    </li>
+    <li class="{% if url_name == 'expanses' %}active{% endif %}">
+      <a href="#expanseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+        <i class="fas fa-minus"></i>
+        Expanse
+      </a>
+      <ul class="collapse list-unstyled" id="expanseSubmenu">
+        <li><a href="{% url 'expanse:information' %}">Inofrmation</a></li>
+        <li><a href="#">Add Expanse Type</a></li>
+      </ul>
+    </li>
+    <li class="{% if url_name == 'expanses' %}active{% endif %}">
+      <a href="#incomeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+        <i class="fas fa-plus"></i>
+        Income
+      </a>
+      <ul class="collapse list-unstyled" id="incomeSubmenu">
+        <li><a href="#">Inofrmation</a></li>
+        <li><a href="#">Add Income Type</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="{% url 'auth:logout' %}"><i class="fas fa-sign-out-alt"></i>
+        Logout
+      </a>
+    </li>
+  </ul>
+</nav>

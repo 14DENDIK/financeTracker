@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - Page{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" type="text/css" href="{% static 'custom/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="pie-charts-wrapper">
+
+  <div class="expanse-chart-wrapper">
+
+    <canvas id="expanse-chart" data-url="{% url 'expanse:expanse-pie-chart' %}"></canvas>
+
+    <form id="expanseForm" method="post" data-url="{% url 'expanse:expanse-pie-chart' %}" class="my-3">
+      {% csrf_token %}
+      <legend class="text-center">Add Expanse</legend>
+      <div class="form-row justify-content-center">
+        <div class="col-sm-2">
+          {{ expanse_form.amount }}
+        </div>
+        <div class="col-3">
+          <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+            {{ expanse_form.date }}
+            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+              <div class="input-group-text">
+                <i class="fas fa-calendar"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          {{ expanse_form.type }}
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-outline-success">Submit</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+  <div class="income-chart-wrapper">
+    <canvas id="income-chart" data-url="{% url 'income:income-pie-chart' %}"></canvas>
+
+    <form id="incomeForm" data-url="{% url 'income:income-pie-chart' %}" method="post" class="my-3">
+      {% csrf_token %}
+      <legend class="text-center">Add Income</legend>
+      <div class="form-row justify-content-center">
+        <div class="col-sm-2">
+          {{ income_form.amount }}
+        </div>
+        <div class="col-3">
+          <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+            {{ income_form.date }}
+            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+              <div class="input-group-text">
+                <i class="fas fa-calendar"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          {{ income_form.type }}
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-outline-success">Submit</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+  <div style="clear:both;"></div>
+
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'custom/js/homePage.js' %}"></script>
+{% endblock %}

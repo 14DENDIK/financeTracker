@@ -1,0 +1,12 @@
+{% for expanse in user.expanses.all %}
+  <tr id="expanse-{{ expanse.id }}">
+      <th scope="row"><b>{{ forloop.counter }}</b></th>
+      <td>${{ expanse.amount }}</td>
+      <td>{{ expanse.type }}</td>
+      <td>{{ expanse.date }}</td>
+      <td>
+        <button type="button" name="button" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i>Edit</button>
+        <button type="button" name="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+      </td>
+  </tr>
+{% endfor %}

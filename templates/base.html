@@ -1,0 +1,47 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fa/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'custom/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tempusdominus-bootstrap-4.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-select.min.css' %}">
+    {% block stylesheets %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+
+    <div class="wrapper">
+      {% if user.is_authenticated %}
+        {% include 'include/_navbar.html' %}
+      {% endif %}
+      <div id="content">
+        {% if user.is_authenticated %}
+          {% include 'include/_top_navbar.html' %}
+        {% endif %}
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+
+
+    {% block footer %}
+    {% endblock %}
+
+
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/moment.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/chart.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/tempusdominus-bootstrap-4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'custom/js/main.js' %}"></script>
+    {% block scripts %}
+    {% endblock %}
+  </body>
+</html>

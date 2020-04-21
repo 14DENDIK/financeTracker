@@ -1,0 +1,15 @@
+.centered-div {
+  width: 30%;
+  margin-left: auto;
+  margin-right: 70px;
+}
+
+a:hover {
+  color: blue;
+}
+
+#content {
+  background: url('../../images/login_background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

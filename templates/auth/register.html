@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}SignUp - Finance Tracker by Sardor{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'custom/css/login.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="centered-div">
+  <form method="post">
+    <fieldset>
+      <legend>Sign Up</legend>
+      {% csrf_token %}
+      {{ form }}
+      <input class="btn btn-success mt-2" type="submit" name="login" value="Sign Up"/>
+    </fieldset>
+  </form>
+  <p><small class="text-muted">Allready have an account?<a href="{% url 'auth:login' %}" class="signup-link"> Sign In</a></small></p>
+</div>
+{% endblock %}

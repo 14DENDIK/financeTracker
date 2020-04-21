@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="" style="height:400px;overflow:auto;">
+  <table class="table">
+      <thead>
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Type</th>
+              <th scope="col">Date</th>
+              <th scope="col"></th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for expanse in user.expanses.all %}
+            <tr id="expanse-{{ expanse.id }}">
+                <th scope="row"><b>{{ forloop.counter }}</b></th>
+                <td>${{ expanse.amount }}</td>
+                <td>{{ expanse.type }}</td>
+                <td>{{ expanse.date }}</td>
+                <td>
+                  <button type="button" name="button" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i>Edit</button>
+                  <button type="button" name="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+</div>
+{% endblock %}
